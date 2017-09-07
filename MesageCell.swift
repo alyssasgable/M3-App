@@ -1,0 +1,24 @@
+//
+//  MesageCell.swift
+//  M3
+//
+//  Created by Alyssa on 9/6/17.
+//  Copyright © 2017 Savage. All rights reserved.
+//
+
+import UIKit
+
+class MesageCell: UITableViewCell {
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
+
+}
