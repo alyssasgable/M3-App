@@ -12,6 +12,7 @@ import FirebaseAuth
 import FirebaseStorage
 import SwiftKeychainWrapper
 
+
 class ViewController: UIViewController {
     
     @IBOutlet weak var emailField: UITextField!
@@ -25,6 +26,8 @@ class ViewController: UIViewController {
     
     var imagePicker: UIImagePickerController!
     var selectedImage: UIImage!
+    var userUid: String!
+    var username: String!
 
     
     override func viewDidLoad() {
@@ -33,7 +36,12 @@ class ViewController: UIViewController {
         imagePicker = UIImagePickerController()
         imagePicker.allowsEditing = true
         imagePicker.delegate = self
+        
+        
+        
     }
+    
+   
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -44,6 +52,8 @@ class ViewController: UIViewController {
             self.performSegue(withIdentifier: "toFeed", sender: nil)
         }
     }
+    
+
         func setupUser(userId: String) {
         if let imageData = UIImageJPEGRepresentation(self.userImgView.image!, 0.2) {
             let imgUid = NSUUID().uuidString
@@ -70,31 +80,97 @@ class ViewController: UIViewController {
             }
     
        @IBAction func signInPressed(_ sender: Any) {
-        if let email = emailField.text, let password = passwordField.text {
+        guard let email = emailField.text, let password = passwordField.text else {
+            print("Form is not valid")
+            return
+        }
+       
             Auth.auth().signIn(withEmail: email, password: password) { (user, error)
                 in
-                if error != nil && !(self.usernameField.text?.isEmpty)! && self.userImgView != nil {
-                    Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-                        
-                        self.setupUser(userId: (user?.uid)!)
-                        
-                        KeychainWrapper.standard.set((user?.uid)!, forKey: "uid")
-                        self.performSegue(withIdentifier: "toFeed", sender: nil)
-                    }
-                } else {
-                    if let userID = user?.uid {
-                    KeychainWrapper.standard.set((userID), forKey: "uid")
+                if error == nil {
+                    self.userUid = user?.uid
+                    
+                    KeychainWrapper.standard.set(self.userUid, forKey: "uid")
                     self.performSegue(withIdentifier: "toFeed", sender: nil)
-        }
+                    
+                    } else {
+                    
+                    self.performSegue(withIdentifier: "toSignUp", sender: nil)
+
     }
+            }
+
 }
-}
-    
-}
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toSignUp" {
+            if let destination = segue.destination as? ViewController {
+                if self.userUid != nil {
+                    destination.userUid = userUid
+                }
+                
+                if self.emailField.text != nil {
+                    
+                    destination.emailField = emailField
+                }
+                if self.passwordField.text != nil {
+                    destination.passwordField = passwordField
+                }
+                
+            }
+        }
+        if segue.identifier == "toFeed" {
+            if let destination = segue.destination as? Feed {
+                if username != nil {
+                    destination.username = username
+                }
+
+    }
+    }
+    }
+    @IBAction func createAccount(_ sender: Any) {
+        guard let email = emailField.text, let password = passwordField.text, let username = usernameField.text else {
+            print("Form is not valid")
+            return
+        }
+        
+        Auth.auth().createUser(withEmail: email, password: password, completion: { (user: User?, error) in
+            
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            guard let uid = user?.uid else {
+                return
+            }
+            
+            //successfully authenticated user
+            let ref = Database.database().reference()
+            let usersReference = ref.child("users").child(uid)
+            let values = ["username": username, "email": email]
+            usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
+                
+                if let err = err {
+                    print(err)
+                    return
+                }
+                
+                
+                self.performSegue(withIdentifier: "toFeed", sender: nil)
+            })
+           
+        })
+    }
+
+    @IBAction func cancel (_sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
+    }
     @IBAction func getPhoto (_sender: AnyObject) {
         present(imagePicker, animated: true, completion: nil)
     }
 }
+
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {

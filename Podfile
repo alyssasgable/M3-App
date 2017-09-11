@@ -6,10 +6,11 @@ target 'M3' do
   use_frameworks!
 
   # Pods for M3
-  pod 'Firebase/Core'
-  pod 'Firebase/Auth'
-  pod 'Firebase/Storage'
+  pod 'Firebase/Core’
+  pod 'Firebase/Auth’
   pod 'Firebase/Database’
+  pod 'Firebase/Storage’
   pod 'SwiftKeychainWrapper'
+
 
 end

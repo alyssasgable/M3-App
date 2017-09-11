@@ -7,18 +7,24 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
-class MesageCell: UITableViewCell {
+class MessageCell: UITableViewCell {
+    
+    @IBOutlet weak var MessageContent: UILabel!
+    
+    @IBOutlet weak var Username: UILabel!
+    
+    @IBOutlet weak var LikeBtn: UIButton!
 
+    
     override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    super.awakeFromNib()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
-
-}
+        
+    }

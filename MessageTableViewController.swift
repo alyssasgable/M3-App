@@ -6,90 +6,69 @@
 //  Copyright © 2017 Savage. All rights reserved.
 //
 
-import UIKit
+import Foundation
+import Firebase
+import FirebaseDatabase
 
-class MessageTableViewController: UITableViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+class MessageTableViewController {
+    
+//    private var _username: String!
+//    private var _userImg: String!
+//    private var _message: String!
+//    private var _likes: Int!
+//    private var _postKey: String!
+//    private var _postRef: DatabaseReference!
+//    
+//    var username: String {
+//        return _username
+//    }
+//    
+//    var userImg: String {
+//        return _userImg
+//    }
+//    
+//    var message: String {
+//        get {
+//            return _message
+//        } set {
+//            _message = newValue
+//    }
+//}
+//    var likes: Int {
+//        return _likes
+//    }
+//    
+//    var postKey: String {
+//        return _postKey
+//    }
+//    
+//    init(message:String, likes: Int, username: String, userImg: String) {
+//        _likes = likes
+//        _message = message
+//        _username = username
+//        _userImg = userImg
+//    }
+//    
+//    init (postKey:String, postData: Dictionary<String, AnyObject>) {
+//        _postKey = postKey
+//        
+//        if let username = postData["username"] as? String {
+//            _username = username
+//        }
+//        
+//        if let userImg = postData["userImg"] as? String {
+//            _userImg = userImg
+//        }
+//        
+//        if let message = postData["message"] as? String {
+//            _message = message
+//        }
+//        
+//        if let likes = postData["likes"] as? Int {
+//            _likes = likes
+//        }
+//        _postRef = Database.database().reference().child("message-items")
+//    }
+    
+    
 }
