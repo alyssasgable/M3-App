@@ -12,7 +12,7 @@ import FirebaseAuth
 import FirebaseDatabase
 import UserNotifications
 
-class Feed: UITableViewController {
+class Feed: UITableViewController, UNUserNotificationCenterDelegate{
     
     var dbRef: DatabaseReference!
     var message = [Message]()
@@ -31,6 +31,8 @@ class Feed: UITableViewController {
         startObservingDB()
         getUserData()
         
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in
+        })
         
         let nav = self.navigationController?.navigationBar
         nav?.barStyle = UIBarStyle.black
@@ -79,6 +81,18 @@ class Feed: UITableViewController {
                 let message = Message(content: messageContent, addedByUser: "Evan Dean")
                 self.dbRef.child(messageContent.lowercased()).setValue(message.toAnyObject())
                 
+                
+                //Sends notification to user
+                let content = UNMutableNotificationContent()
+                content.title = "M3"
+                content.body = messageContent
+                content.badge = 1
+                
+                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+                let request = UNNotificationRequest(identifier: "timerDone", content: content, trigger: trigger)
+                
+                UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+
             }
             
         }))
@@ -86,16 +100,13 @@ class Feed: UITableViewController {
         self.present(messageAlert, animated: true, completion: nil)
         
         }
-    
-    }
+}
 
         override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
-    
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections

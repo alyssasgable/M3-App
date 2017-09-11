@@ -89,7 +89,6 @@
 			isa = PBXGroup;
 			children = (
 				29EF60471F6700CB002400AF /* M3.entitlements */,
-				29F134981F59DDF500E8FE88 /* Model */,
 				2920B4A41F3D0202005C719F /* AppDelegate.swift */,
 				2920B4A61F3D0202005C719F /* ViewController.swift */,
 				29693AC71F511FE800FF46AB /* LaunchScreen.storyboard */,
@@ -103,13 +102,6 @@
 				29C0BA131F60501000ACAB69 /* MesageCell.swift */,
 			);
 			path = M3;
-			sourceTree = "<group>";
-		};
-		29F134981F59DDF500E8FE88 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Model;
 			sourceTree = "<group>";
 		};
 		68685C7C4DF8A5B8CE892A00 /* Pods */ = {
@@ -159,6 +151,9 @@
 						DevelopmentTeam = LW9G79YZY5;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};

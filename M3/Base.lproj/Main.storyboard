@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bglogin" translatesAutoresizingMaskIntoConstraints="NO" id="9Ea-Ts-lht">
-                                <rect key="frame" x="0.0" y="20" width="373.5" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="373.5" height="559"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bglogincard" translatesAutoresizingMaskIntoConstraints="NO" id="fSp-Hc-yNo">
                                 <rect key="frame" x="22" y="123.5" width="331" height="420"/>
