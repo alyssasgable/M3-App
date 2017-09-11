@@ -267,7 +267,7 @@
             </objects>
             <point key="canvasLocation" x="809" y="1603"/>
         </scene>
-        <!--Feed-->
+        <!--FEED-->
         <scene sceneID="2z7-BQ-hbh">
             <objects>
                 <tableViewController id="lh9-sE-kd9" customClass="Feed" customModule="M3" customModuleProvider="target" sceneMemberID="viewController">
@@ -283,15 +283,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="155"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="vM3-Tg-RHx">
-                                            <rect key="frame" x="5" y="22" width="63" height="56"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="63" id="7zT-NA-naa"/>
-                                                <constraint firstAttribute="height" constant="56" id="SZD-06-ihM"/>
-                                            </constraints>
-                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USERNAME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="KDW-ek-YIW">
-                                            <rect key="frame" x="5" y="79" width="63" height="21"/>
+                                            <rect key="frame" x="5" y="91" width="63" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="dUp-50-I28"/>
                                             </constraints>
@@ -308,12 +301,19 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="vM3-Tg-RHx">
+                                            <rect key="frame" x="5" y="39" width="63" height="56"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="63" id="7zT-NA-naa"/>
+                                                <constraint firstAttribute="height" constant="56" id="SZD-06-ihM"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="KDW-ek-YIW" secondAttribute="bottom" constant="47" id="0n2-Mq-8GW"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="KDW-ek-YIW" secondAttribute="bottom" constant="34.5" id="0n2-Mq-8GW"/>
                                         <constraint firstItem="4Ir-RT-87u" firstAttribute="leading" secondItem="KDW-ek-YIW" secondAttribute="trailing" constant="16" id="0zw-yu-ykQ"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="4Ir-RT-87u" secondAttribute="bottom" constant="34" id="7ya-Ns-ZRk"/>
-                                        <constraint firstItem="KDW-ek-YIW" firstAttribute="top" secondItem="vM3-Tg-RHx" secondAttribute="bottom" constant="1" id="UuX-gY-Rwh"/>
+                                        <constraint firstItem="KDW-ek-YIW" firstAttribute="top" secondItem="vM3-Tg-RHx" secondAttribute="bottom" constant="-4" id="UuX-gY-Rwh"/>
                                         <constraint firstItem="KDW-ek-YIW" firstAttribute="leading" secondItem="vM3-Tg-RHx" secondAttribute="leading" id="dIl-Jy-dcK"/>
                                         <constraint firstItem="KDW-ek-YIW" firstAttribute="centerX" secondItem="vM3-Tg-RHx" secondAttribute="centerX" id="mUx-uY-iS1"/>
                                         <constraint firstItem="4Ir-RT-87u" firstAttribute="top" secondItem="V6B-iR-sAb" secondAttribute="topMargin" constant="-35" id="xFq-Y6-VPc"/>
@@ -332,7 +332,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Feed" id="5pv-hK-Dm0">
+                    <navigationItem key="navigationItem" title="FEED" id="5pv-hK-Dm0">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="JOp-re-chb">
                             <connections>
                                 <action selector="addMessage:" destination="lh9-sE-kd9" id="Ygc-rg-HWL"/>
@@ -341,7 +341,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="toLogin" id="Al2-dP-eiD"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="toLogin" id="Lb0-V8-TJ8"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gbe-s6-Dab" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -355,7 +355,7 @@
         <image name="logo" width="139" height="132"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="OXc-lb-D9O"/>
+        <segue reference="y8b-Pj-qxn"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.9933047890663147" green="0.83390319347381592" blue="0.0046435585245490074" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

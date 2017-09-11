@@ -82,7 +82,7 @@ class Feed: UITableViewController, UNUserNotificationCenterDelegate{
                 self.dbRef.child(messageContent.lowercased()).setValue(message.toAnyObject())
                 
                 
-                //Sends notification to user
+                //Sends notification to users
                 let content = UNMutableNotificationContent()
                 content.title = "M3"
                 content.body = messageContent
@@ -169,7 +169,7 @@ class Feed: UITableViewController, UNUserNotificationCenterDelegate{
             print("Error signing out: %&", signOutError)
         }
         
-        performSegue(withIdentifier: "toLogin", sender: nil)
+        dismiss(animated: true, completion: nil)
     }
     
 }
